@@ -81,13 +81,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>a :Ack!
-if executable('ag')
-  let g:ackprg = 'ag'
-endif
-
-map <leader>n :NERDTreeToggle<CR>
-
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
@@ -115,39 +108,8 @@ set wildignore+=*.orig
 set wildignore+=~*
 set wildignore+=*.scssc
 
-" Make control-p open with c-p
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-" Make control-p open in the current directory, or in the git main
-" directory
-let g:ctrlp_working_path_mode = 'ra'
-
-" Allow ctrl-T to switch tabs in macvim
-if has("gui_macvim")
-  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
-  " the right side. Ctrl-Shift-Tab goes the other way.
-  noremap <C-Tab> :tabnext<CR>
-  noremap <C-S-Tab> :tabprev<CR>
-
-  " Switch to specific tab numbers with Command-number
-  noremap <D-1> :tabn 1<CR>
-  noremap <D-2> :tabn 2<CR>
-  noremap <D-3> :tabn 3<CR>
-  noremap <D-4> :tabn 4<CR>
-  noremap <D-5> :tabn 5<CR>
-  noremap <D-6> :tabn 6<CR>
-  noremap <D-7> :tabn 7<CR>
-  noremap <D-8> :tabn 8<CR>
-  noremap <D-9> :tabn 9<CR>
-  " Command-0 goes to the last tab
-  noremap <D-0> :tablast<CR>
-endif
-
 set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
 
 " Make Control-A select all
 map <C-a> <esc>ggVG<CR>
@@ -161,14 +123,6 @@ highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Re
 " Change color of 80 column to not be awful
 highlight ColorColumn ctermbg=233 guibg=#2c2d27 
 highlight Search cterm=NONE ctermfg=grey ctermbg=blue
-
-" set macvim to start in a project folder
-"if has("gui_macvim")
-    "cd ~/Desktop/snippets/
-"endif
-
-" Auto-run flake8 (py syntac checker) on file save
-"autocmd BufWritePost *.py call Flake8()
 
 " Allow crontab editing with vim
 autocmd filetype crontab setlocal nobackup nowritebackup
