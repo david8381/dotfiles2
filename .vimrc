@@ -1,6 +1,4 @@
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
-filetype off
-call pathogen#infect() "Allow for pathogen plugins
 filetype plugin indent on
 
 set nocompatible "Doesn't have to be compatible with vi
