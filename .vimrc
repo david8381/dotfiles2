@@ -203,6 +203,7 @@ map <leader>q :vs ~/buffer<cr>
 map <leader>x :vs ~/buffer.markdown<cr>
 
 let b:ale_linters = ['eslint']
+let g:jedi#usages_command = "<leader>q"
 
 if $TMUX == ''
     set clipboard+=unnamed
